@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DiciplineAdapter"></activity>
         <activity
-            android:name=".AddDicipline"
-            android:configChanges="orientation|screenSize" />
+            android:name=".dicipline.ListDicipline"
+            android:label="@string/title_activity_list_dicipline"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".DiciplineAdapter" />
         <activity
-            android:name=".ListDicipline"
+            android:name=".dicipline.AddDicipline"
             android:configChanges="orientation|screenSize" />
         <activity
             android:name=".MainActivity"

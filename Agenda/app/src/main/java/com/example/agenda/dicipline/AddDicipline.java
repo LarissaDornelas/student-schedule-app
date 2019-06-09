@@ -1,7 +1,9 @@
-package com.example.agenda;
+package com.example.agenda.dicipline;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.agenda.R;
 
 public class AddDicipline extends AppCompatActivity {
 
