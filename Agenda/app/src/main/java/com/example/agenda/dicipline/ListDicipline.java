@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.agenda.MainActivity;
@@ -17,39 +19,35 @@ public class ListDicipline extends AppCompatActivity {
     Toolbar toolbar;
     ListView lvDiciplines;
     DiciplineListAdapter listAdapter;
-    ArrayList<Dicipline>diciplines;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_dicipline);
 
-        diciplines = new ArrayList<>();
-        diciplines.add(new Dicipline("Sistemas Distribuídos", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Sistemas Operacionais", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Sistemas Distribuídos", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Sistemas Operacionais", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Matemática Discreta", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Sistemas Distribuídos", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Sistemas Operacionais", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Matemática Discreta", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Sistemas Distribuídos", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Sistemas Operacionais", 5, 3,16,70,false));
-        diciplines.add(new Dicipline("Matemática Discreta", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Sistemas Distribuídos", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Sistemas Operacionais", 5, 3,16,70,true));
-        diciplines.add(new Dicipline("Matemática Discreta", 5, 3,16,70,true));
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Diciplinas");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        listAdapter = new DiciplineListAdapter(this,diciplines);
         lvDiciplines = findViewById(R.id.lvDiciplines);
 
-        lvDiciplines.setAdapter(listAdapter);
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        lvDiciplines.setAdapter(new DiciplineListAdapter(this, SharedResources.getInstance().getDiciplines()));
+        lvDiciplines.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -60,6 +58,12 @@ public class ListDicipline extends AppCompatActivity {
             default:break;
         }
         return true;
+    }
+
+    public void clickAddDicipline(View view){
+        Intent it = new Intent(
+                this, AddDicipline.class);
+        startActivity(it);
     }
 
 

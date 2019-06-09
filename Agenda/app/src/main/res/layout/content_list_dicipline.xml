@@ -35,6 +35,7 @@
             android:layout_marginLeft="15dp"
             android:background="@android:color/transparent"
             android:src="@drawable/icons8_mais_150"
+            android:onClick="clickAddDicipline"
             tools:layout_editor_absoluteX="285dp"
             tools:layout_editor_absoluteY="590dp" />
     </LinearLayout>
