@@ -57,13 +57,13 @@ public DiciplineListAdapter(ListDicipline listDicipline, ArrayList<Dicipline> di
         }else{
             tvStatus.setText("Status: Concluida");
         }
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(context, "You Clicked " + diciplines.get(position), Toast.LENGTH_LONG).show();
-            }
-        });
+//        v.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Toast.makeText(context, "You Clicked " + diciplines.get(position), Toast.LENGTH_LONG).show();
+//            }
+//        });
 
         return v;
     }

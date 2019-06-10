@@ -43,7 +43,11 @@ public class ListDicipline extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent it = new Intent(
+                        ListDicipline.this,
+                        EditDicipline.class);
+                it.putExtra("position", position);
+                startActivity(it);
             }
         });
     }

@@ -56,7 +56,7 @@ public class AddDicipline extends AppCompatActivity {
           int semester = Integer.parseInt(etAddSemester.getText().toString());
           int faults = 0;
           int faultLimit = Integer.parseInt(etAddFaultLimit.getText().toString());
-          float goal = 70;
+          float goal = Float.parseFloat(etAddGoal.getText().toString());
           boolean progress = true;
 
           Dicipline dicipline = new Dicipline(name, semester, faults, faultLimit, goal, progress);
