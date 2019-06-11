@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -45,17 +46,17 @@ public class ListTask extends AppCompatActivity {
         super.onResume();
 
         lvTasks.setAdapter(new TaskListAdapter(this, SharedResources.getInstance().getTasks()));
-//        lvTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent it = new Intent(
-//                        ListDicipline.this,
-//                        EditDicipline.class);
-//                it.putExtra("position", position);
-//                startActivity(it);
-//            }
-//        });
+        lvTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent it = new Intent(
+                        ListTask.this,
+                       EditTask.class);
+                 it.putExtra("position", position);
+                  startActivity(it);
+            }
+        });
     }
 
     @Override

@@ -53,14 +53,6 @@ public class TaskListAdapter extends BaseAdapter {
         tvDicipline.setText(this.tasks.get(position).getDicipline());
         tvDate.setText("Data de Entrega: "+this.tasks.get(position).getDate());
 
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(context, "You Clicked " + tasks.get(position), Toast.LENGTH_LONG).show();
-            }
-        });
-
         return v;
     }
 
