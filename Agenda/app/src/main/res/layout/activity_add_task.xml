@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".task.AddTask"
+    android:orientation="vertical"
+
+    >
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="Disciplina"/>
+        <Spinner
+            android:id="@+id/diciplineSpinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/app_name"
+            android:layout_marginBottom="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="16dp"
+            android:text="Tipo da tarefa"/>
+        <Spinner
+            android:id="@+id/type"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/app_name"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Descrição"
+            android:id="@+id/etAddDescription"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp" />
+
+        <EditText android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Valor da Atividade"
+            android:id="@+id/etAddValue"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp" />
+
+        <EditText android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Objetivo de nota"
+            android:id="@+id/etAddPriority"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp" />
+
+        <EditText android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Data de Entrega"
+            android:id="@+id/etAddDate" />
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar"
+            android:onClick="addNewTask"/>
+
+    </LinearLayout>
+</LinearLayout>

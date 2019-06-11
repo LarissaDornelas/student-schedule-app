@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.agenda.dicipline.ListDicipline;
+import com.example.agenda.task.ListTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(it);
     }
     public void clickTasks(View view){
-        Toast.makeText(this, "Você clicou na opção 'Tarefas'!", Toast.LENGTH_SHORT).show();
+        Intent it = new Intent(
+                this, ListTask.class);
+        startActivity(it);
     }
     public void clickProfile(View view){
         Toast.makeText(this, "Você clicou na opção 'Perfil'!", Toast.LENGTH_SHORT).show();

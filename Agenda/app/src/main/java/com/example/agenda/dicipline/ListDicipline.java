@@ -11,8 +11,7 @@ import android.widget.ListView;
 
 import com.example.agenda.MainActivity;
 import com.example.agenda.R;
-
-import java.util.ArrayList;
+import com.example.agenda.SharedResources;
 
 public class ListDicipline extends AppCompatActivity {
 

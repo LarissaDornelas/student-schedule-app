@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.agenda.R;
+import com.example.agenda.SharedResources;
 
 import java.util.ArrayList;
 import java.util.List;

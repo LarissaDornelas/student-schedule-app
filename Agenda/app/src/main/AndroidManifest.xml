@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".dicipline.EditDicipline"></activity>
+        <activity android:name=".task.AddTask"></activity>
+        <activity android:name=".task.TaskListAdapter" />
+        <activity android:name=".task.ListTask" />
+        <activity android:name=".dicipline.EditDicipline" />
         <activity
             android:name=".dicipline.ListDicipline"
             android:label="@string/title_activity_list_dicipline"

@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.agenda.MainActivity;
 import com.example.agenda.R;
+import com.example.agenda.SharedResources;
 
 public class AddDicipline extends AppCompatActivity {
     Toolbar toolbar;
