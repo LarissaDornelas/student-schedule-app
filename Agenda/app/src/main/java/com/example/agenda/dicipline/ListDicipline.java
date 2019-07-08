@@ -12,12 +12,15 @@ import android.widget.ListView;
 import com.example.agenda.MainActivity;
 import com.example.agenda.R;
 import com.example.agenda.SharedResources;
+import com.example.agenda.task.TaskDAO;
+
+import java.util.ArrayList;
 
 public class ListDicipline extends AppCompatActivity {
 
     Toolbar toolbar;
     ListView lvDiciplines;
-    DiciplineListAdapter listAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,10 @@ public class ListDicipline extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        lvDiciplines.setAdapter(new DiciplineListAdapter(this, SharedResources.getInstance().getDiciplines()));
+        DiciplineDAO diciplineDao = new DiciplineDAO(getBaseContext());
+        TaskDAO taskDao = new TaskDAO(getBaseContext());
+
+        lvDiciplines.setAdapter(new DiciplineListAdapter(this, diciplineDao.getAll(), taskDao.getAll() ));
         lvDiciplines.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override

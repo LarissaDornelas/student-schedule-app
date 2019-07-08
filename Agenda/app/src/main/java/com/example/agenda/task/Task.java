@@ -1,6 +1,7 @@
 package com.example.agenda.task;
 
 public class Task {
+    private int id;
     private String dicipline;
     private String description;
     private int value;
@@ -9,7 +10,8 @@ public class Task {
     private String type;
     private int priority;
 
-    public Task(String dicipline, String description, int value, double note, String date, String type, int priority) {
+    public Task(int id, String dicipline, String description, int value, double note, String date, String type, int priority) {
+        this.id = id;
         this.dicipline = dicipline;
         this.description = description;
         this.value = value;
@@ -73,6 +75,14 @@ public class Task {
 
     public void setPriority(int priority) {
         this.priority = priority;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int priority) {
+        this.id = id;
     }
 
     @Override

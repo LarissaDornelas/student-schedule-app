@@ -1,6 +1,7 @@
 package com.example.agenda.dicipline;
 
 public class Dicipline {
+    private int id;
     private String name;
     private int semester;
     private int faults;
@@ -8,7 +9,9 @@ public class Dicipline {
     private float goal;
     private boolean progress;
 
-    public Dicipline(String name, int semester, int faults, int faultLimit, float goal, boolean progress) {
+    public Dicipline(int id, String name, int semester, int faults, int faultLimit, float goal, boolean progress) {
+
+        this.id = id;
         this.name = name;
         this.semester = semester;
         this.faults = faults;
@@ -64,6 +67,12 @@ public class Dicipline {
 
     public void setProgress(boolean progress) {
         this.progress = progress;
+    }
+
+    public int getId(){return this.id;}
+
+    public void setId(int id){
+        this.id = id;
     }
 
     @Override

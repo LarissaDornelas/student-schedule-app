@@ -41,13 +41,15 @@ public class EditDicipline extends AppCompatActivity {
 
         Intent it = getIntent();
         position = it.getIntExtra("position", 0);
+        DiciplineDAO dao = new DiciplineDAO(getBaseContext());
 
-          etName.setText(SharedResources.getInstance().getDiciplines().get(position).getName());
-          etSemester.setText(Integer.toString(SharedResources.getInstance().getDiciplines().get(position).getSemester()));
-          etFaultLimit.setText(Integer.toString(SharedResources.getInstance().getDiciplines().get(position).getFaultLimit()));
-          etGoal.setText(Float.toString(SharedResources.getInstance().getDiciplines().get(position).getGoal()));
-          etFaults.setText(Integer.toString(SharedResources.getInstance().getDiciplines().get(position).getFaults()));
-          progress = SharedResources.getInstance().getDiciplines().get(position).isProgress();
+
+          etName.setText(dao.getAll().get(position).getName());
+          etSemester.setText(Integer.toString(dao.getAll().get(position).getSemester()));
+          etFaultLimit.setText(Integer.toString(dao.getAll().get(position).getFaultLimit()));
+          etGoal.setText(Float.toString(dao.getAll().get(position).getGoal()));
+          etFaults.setText(Integer.toString(dao.getAll().get(position).getFaults()));
+          progress = dao.getAll().get(position).isProgress();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -108,6 +110,7 @@ public class EditDicipline extends AppCompatActivity {
     }
 
     public void confirm(View view){
+        DiciplineDAO dao = new DiciplineDAO(getBaseContext());
         String name = etName.getText().toString();
         int semester = Integer.parseInt(etSemester.getText().toString());
         int faults = Integer.parseInt(etFaults.getText().toString());
@@ -115,13 +118,13 @@ public class EditDicipline extends AppCompatActivity {
         float goal = Float.parseFloat(etGoal.getText().toString());
         boolean progress = this.progress;
 
-        Dicipline dicipline = new Dicipline(name, semester, faults, faultLimit, goal, progress);
-        SharedResources.getInstance().getDiciplines().set(position,dicipline);
+        dao.save(dao.getAll().get(position).getId(), name, semester, faults, faultLimit, goal, progress);
         Toast.makeText(this, "Disciplina editada com sucesso", Toast.LENGTH_SHORT).show();
     }
 
     public void delete(View view){
-        SharedResources.getInstance().getDiciplines().remove(position);
+        DiciplineDAO dao = new DiciplineDAO(getBaseContext());
+        dao.delete(dao.getAll().get(position).getId());
         Toast.makeText(this, "Disciplina removida com sucesso", Toast.LENGTH_SHORT).show();
         finish();
     }

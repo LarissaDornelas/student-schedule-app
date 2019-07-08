@@ -1,6 +1,8 @@
 package com.example.agenda.dicipline;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,16 +11,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agenda.R;
+import com.example.agenda.task.Task;
+import com.example.agenda.task.TaskDAO;
 
 import java.util.ArrayList;
 
 public class DiciplineListAdapter extends BaseAdapter {
     private  ArrayList<Dicipline> diciplines;
+    private  ArrayList<Task> tasks;
     private Context context;
     private static LayoutInflater inflater = null;
 
-public DiciplineListAdapter(ListDicipline listDicipline, ArrayList<Dicipline> diciplines){
+
+public DiciplineListAdapter(ListDicipline listDicipline, ArrayList<Dicipline> diciplines, ArrayList<Task> tasks){
     this.diciplines = diciplines;
+    this.tasks = tasks;
+
     context = listDicipline;
     inflater = ( LayoutInflater )context.
             getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -42,21 +50,41 @@ public DiciplineListAdapter(ListDicipline listDicipline, ArrayList<Dicipline> di
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+
+
+
         View v = inflater.inflate(R.layout.layout_dicipline_item, null);
         TextView tvName = v.findViewById(R.id.tvName);
-        TextView tvSemester =  v.findViewById(R.id.tvSemester);
-        TextView tvStatus = v.findViewById(R.id.tvStatus);
+        TextView tvTotalNote = v.findViewById(R.id.tvTotalNote);
+        TextView tvFaults= v.findViewById(R.id.tvFaults);
+        CardView cardView = v.findViewById(R.id.card_view);
+
+        double sum = 0;
+        for(int i=0; i<tasks.size(); i++){
+
+            if(this.diciplines.get(position).getName().equals(tasks.get(i).getDicipline())){
+                sum+=tasks.get(i).getNote();
+
+            }
+        }
 
         tvName.setText(this.diciplines.get(position).getName());
-        tvSemester.setText(Integer.toString(this.diciplines.get(position).getSemester())+"° semestre");
-        tvStatus.setText("Status: Concluida");
+        tvTotalNote.setText("Nota atual: "+ sum);
+        tvFaults.setText("Número de faltas: "+ this.diciplines.get(position).getFaults());
 
-        if(this.diciplines.get(position).isProgress()){
+        if(sum>=this.diciplines.get(position).getGoal()){
+            cardView.setCardBackgroundColor(Color.GREEN);
+        }
+        else{
+            cardView.setCardBackgroundColor(Color.RED);
+
+        }
+       /* if(this.diciplines.get(position).isProgress()){
             tvStatus.setText("Status: Em Andamento");
 
         }else{
             tvStatus.setText("Status: Concluida");
-        }
+        }*/
 //        v.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

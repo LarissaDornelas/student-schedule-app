@@ -59,8 +59,9 @@ public class AddDicipline extends AppCompatActivity {
           float goal = Float.parseFloat(etAddGoal.getText().toString());
           boolean progress = true;
 
-          Dicipline dicipline = new Dicipline(name, semester, faults, faultLimit, goal, progress);
-          SharedResources.getInstance().getDiciplines().add(dicipline);
+          DiciplineDAO dao = new DiciplineDAO(getBaseContext());
+          boolean success = dao.save(name, semester, faults, faultLimit, goal, progress);
+          //SharedResources.getInstance().getDiciplines().add(dicipline);
 
         Toast.makeText(this, "Disciplina cadastrada com sucesso!",
                 Toast.LENGTH_SHORT).show();

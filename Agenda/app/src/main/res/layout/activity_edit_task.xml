@@ -51,47 +51,57 @@
             android:prompt="@string/app_name"
             android:layout_marginBottom="20dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="Descrição"/>
+
         <EditText android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:hint="Descrição"
             android:id="@+id/etDescription"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:text="Valor da Atividade"
+            android:layout_marginTop="16dp"/>
 
         <EditText android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:hint="Valor da Atividade"
             android:id="@+id/etValue"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:text="Objetivo de nota"
+            android:layout_marginTop="16dp"/>
 
         <EditText android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:hint="Objetivo de nota"
             android:id="@+id/etPriority"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:text="Data de entrega"
+            android:layout_marginTop="16dp"/>
 
         <EditText android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:hint="Data de Entrega"
             android:id="@+id/etDate" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:text="Nota tirada"
+            android:layout_marginTop="16dp"/>
 
         <EditText android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:hint="Nota tirada"
+            android:hint="Digite sua nota nesta tarefa."
             android:id="@+id/etNote" />
 
 

@@ -15,6 +15,7 @@ import com.example.agenda.R;
 import com.example.agenda.SharedResources;
 
 import com.example.agenda.dicipline.AddDicipline;
+import com.example.agenda.dicipline.DiciplineDAO;
 import com.example.agenda.task.AddTask;
 import com.example.agenda.dicipline.Dicipline;
 import com.example.agenda.task.TaskListAdapter;
@@ -23,7 +24,7 @@ public class ListTask extends AppCompatActivity {
 
     Toolbar toolbar;
     ListView lvTasks;
-//    TaskListAdapter listAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,8 @@ public class ListTask extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        lvTasks.setAdapter(new TaskListAdapter(this, SharedResources.getInstance().getTasks()));
+        TaskDAO dao = new TaskDAO(getBaseContext());
+        lvTasks.setAdapter(new TaskListAdapter(this, dao.getAll()));
         lvTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -72,7 +74,9 @@ public class ListTask extends AppCompatActivity {
     }
 
     public void clickAddTask(View view){
-        if(SharedResources.getInstance().getDiciplines().isEmpty()){
+
+        DiciplineDAO diciplineDAO = new DiciplineDAO(getBaseContext());
+        if(diciplineDAO.getAll().isEmpty()){
             Toast.makeText(this, "Você não possui disciplinas cadastradas.\nPrimeiro cadastre uma disciplina.", Toast.LENGTH_SHORT).show();
            }
         else {
